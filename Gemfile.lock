@@ -211,7 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (>= 1.4.4)
+  bootsnap (>= 1.6.0)
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
