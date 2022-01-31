@@ -28,6 +28,8 @@ class EntriesController < ActionController::API
       { errors: record.errors.messages }
     end
 
+    
+
 
 end
 
