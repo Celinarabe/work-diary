@@ -3,7 +3,8 @@ module Api
     class EntriesController < ActionController::API
 
       def index
-          render :json => Entry.all
+          @entries = Entry.all
+          render :json => getTasks(@entries)
       end
 
       def show
@@ -22,8 +23,21 @@ module Api
       end
 
       private
+
+        def getTasks(entries)
+          result = []
+          entries.each do | entry|
+            result.push({
+              id: entry.id,
+              date: entry.date,
+              tasks: entry.tasks.map { |task| task.body },
+            })
+          end
+          return result
+        end
+
         def entry_params
-          params.permit(:author, :date)
+          params.permit(:author, :date, tasks_attributes: [  :id, :body ] )
         end
 
         def errors(record)
