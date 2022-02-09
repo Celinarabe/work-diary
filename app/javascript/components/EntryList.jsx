@@ -1,22 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 import axios from "axios"
-import Entry from './components/Entry'
 import { useEffect, useState } from "react"
+import Entry from './Entry'
 
-const API_URL = "http://localhost:3000/entries"
-
-const getAllEntries = () => {
-  console.log('trying')
-  return axios.get(API_URL).then((response) => {
-    console.log('RESPONSE',response)
-    return response.data
-})}
+const API_URL = "http://localhost:5000/api/v1/entries"
 
 
-function App() {
+function EntryList() {
   const [entries, setEntries] = useState([])
-
   useEffect(() => {
     console.log('in effect')
     let mounted = true;
@@ -28,7 +19,6 @@ function App() {
     return () => (mounted = false); //callback
   }, [])
 
-
   return (
     <div className="App">
       <h1>
@@ -39,4 +29,13 @@ function App() {
   );
 }
 
-export default App;
+const getAllEntries = () => {
+  console.log('trying')
+  return axios.get(API_URL).then((response) => {
+    console.log('RESPONSE',response)
+    return response.data
+})}
+
+
+export default EntryList
+
