@@ -21,7 +21,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { eventListeners } from "@popperjs/core";
 
-const API_URL = "http://localhost:5000/api/v1/entries";
+const API_URL = "https://shrouded-retreat-86547.herokuapp.com/api/v1/entries";
 
 function EntryForm(props) {
   const [startDate, setStartDate] = useState(new Date());
