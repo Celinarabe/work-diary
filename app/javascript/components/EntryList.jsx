@@ -1,41 +1,33 @@
-import React from 'react'
-import axios from "axios"
-import { useEffect, useState } from "react"
-import Entry from './Entry'
+import React, { useState, useEffect } from "react";
+import { SimpleGrid, Divider, Button } from "@chakra-ui/react";
+import EntryPreview from "./EntryPreview";
+import EntryForm from "./EntryForm";
+import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
-const API_URL = "http://localhost:5000/api/v1/entries"
-
-
-function EntryList() {
-  const [entries, setEntries] = useState([])
-  useEffect(() => {
-    console.log('in effect')
-    let mounted = true;
-    getAllEntries().then((items) => {
-      if(mounted) {
-        setEntries(items)
-      }
-    });
-    return () => (mounted = false); //callback
-  }, [])
-
+const EntryList = (props) => {
   return (
-    <div className="App">
-      <h1>
-        Hello from React world
-      </h1>
-      <Entry entries={entries}/>
-    </div>
+    <>
+      <Button
+        leftIcon={<AddIcon />}
+        colorScheme="blue"
+        size="sm"
+        my={5}
+        onClick={() => props.setShowForm(true)}
+      >
+        New Entry
+      </Button>
+
+      <SimpleGrid columns={1} spacing={5}>
+        {props.entries.map((entry) => {
+          return (
+            <>
+              <EntryPreview entry={entry} />
+            </>
+          );
+        })}
+      </SimpleGrid>
+    </>
   );
-}
+};
 
-const getAllEntries = () => {
-  console.log('trying')
-  return axios.get(API_URL).then((response) => {
-    console.log('RESPONSE',response)
-    return response.data
-})}
-
-
-export default EntryList
-
+export default EntryList;

@@ -6,6 +6,8 @@ class Entry < ApplicationRecord
 
     has_many :tasks, dependent: :destroy
 
+    accepts_nested_attributes_for :tasks
+    
     before_validation :ensure_date
 
     def as_json(options={})
