@@ -6,8 +6,24 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Home from "../components/Home";
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      "html, body": {
+        color: "#fee9c1",
+      },
+    },
+  },
+  colors: {
+    brand: {
+      100: "#fee9c1",
+      900: "#314344",
+    },
+  },
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(

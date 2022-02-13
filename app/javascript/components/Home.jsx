@@ -1,13 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Text, Heading, Center, Container } from "@chakra-ui/react";
+import { Box, Text, Heading, Center, Container } from "@chakra-ui/react";
 import EntryList from "./EntryList";
+import EntryForm from "./EntryForm";
 
 const API_URL = "http://localhost:5000/api/v1/entries";
 
 const Home = () => {
   const [entries, setEntries] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   //fetch entries on component mount
   useEffect(() => {
@@ -22,12 +24,16 @@ const Home = () => {
 
   return (
     <div className="App">
-      <Container>
+      <Box h="100%" px={10} py={5}>
         <Center>
-          <Heading>Work Diary</Heading>
+          <Heading mb={5}>Work Diary</Heading>
         </Center>
-        <EntryList entries={entries} />
-      </Container>
+        {showForm ? (
+          <EntryForm setShowForm={setShowForm} />
+        ) : (
+          <EntryList entries={entries} setShowForm={setShowForm} />
+        )}
+      </Box>
     </div>
   );
 };
