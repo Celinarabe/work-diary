@@ -1,17 +1,22 @@
 import React from "react";
 import { DateTime } from "luxon";
-import { SimpleGrid, Divider, ListItem, UnorderedList } from "@chakra-ui/react";
+import {
+  SimpleGrid,
+  Divider,
+  ListItem,
+  UnorderedList,
+  Text,
+} from "@chakra-ui/react";
 
 const EntryPreview = (props) => {
   console.log(props.entry.date);
   return props.entry.tasks.length > 0 ? (
     <div>
       <p>{formatDate(props.entry.date)}</p>
-      <UnorderedList>
-        {props.entry.tasks.map((task) => (
-          <ListItem>{task}</ListItem>
-        ))}
-      </UnorderedList>
+
+      {props.entry.tasks.map((task) => (
+        <Text style={{ whiteSpace: "pre-line" }}>{task}</Text>
+      ))}
     </div>
   ) : (
     ""

@@ -5,7 +5,7 @@ import { Box, Text, Heading, Center, Container } from "@chakra-ui/react";
 import EntryList from "./EntryList";
 import EntryForm from "./EntryForm";
 
-const API_URL = "https://shrouded-retreat-86547.herokuapp.com/api/v1/entries";
+const API_URL = "http://localhost:5000/api/v1/entries";
 
 const Home = () => {
   const [entries, setEntries] = useState([]);
