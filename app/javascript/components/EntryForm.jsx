@@ -20,7 +20,11 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import { eventListeners } from "@popperjs/core";
 
-const API_URL = "http://localhost:5000/api/v1/entries";
+const heroku_prefix = "https://shrouded-retreat-86547.herokuapp.com/";
+
+const local_prefix = "http://localhost:3000/";
+
+const API_URL = `${heroku_prefix}api/v1/entries`;
 
 function EntryForm(props) {
   const [startDate, setStartDate] = useState(new Date());
