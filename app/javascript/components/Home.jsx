@@ -7,9 +7,10 @@ import EntryForm from "./EntryForm";
 
 const heroku_prefix = "https://shrouded-retreat-86547.herokuapp.com/";
 
-const local_prefix = "http://localhost:5000/";
+const local_prefix = "http://localhost:3000/";
 
-const API_URL = "#{heroku_prefix}api/v1/entries";
+const API_URL = `${heroku_prefix}api/v1/entries`;
+console.log(API_URL);
 
 const Home = () => {
   const [entries, setEntries] = useState([]);
