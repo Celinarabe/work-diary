@@ -18,7 +18,7 @@ import { CalendarIcon, CheckCircleIcon, CheckIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import { eventListeners } from "@popperjs/core";
 
 const API_URL = "http://localhost:5000/api/v1/entries";

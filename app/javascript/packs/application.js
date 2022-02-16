@@ -7,6 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "react-datepicker/dist/react-datepicker.css";
+
+require("../components/hello_react")
 
 Rails.start()
 Turbolinks.start()
